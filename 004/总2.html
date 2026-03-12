@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let money = 1000;
+      while (true) {
+        let sel = +prompt(`
+        1.存钱
+        2.取钱
+        3.查看余额
+        4.退出
+        `);
+        // if (sel === 1) {
+        // let cun = +prompt("输入存入的钱：");
+        // alert(`银行卡里有${money + cun}`);
+        // break;
+        // } else if (sel === 2) {
+        // let qu = +prompt("输入取出的钱：");
+        // alert(`银行卡里有${money - qu}`);
+        // break;
+        // } else if (sel === 3) {
+        // alert(`银行卡里有${money}`);
+        // break;
+        // } else if (sel === 4) {
+        // break;
+        // }
+        // }
+
+        if (sel === 4) {
+          break;
+        }
+        switch (sel) {
+          case 1:
+            let cun = +prompt("输入存入的钱：");
+            money = money + cun;
+            alert(`银行卡里有${money}`);
+            break;
+          case 2:
+            let qu = +prompt("输入取出的钱：");
+            money = money - qu;
+            alert(`银行卡里有${money}`);
+            break;
+          case 3:
+            alert(`银行卡里有${money}`);
+        }
+      }
+    </script>
+  </body>
+</html>
