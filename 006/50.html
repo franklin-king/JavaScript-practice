@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getSum(x = 0, y = 0) {
+        let sum = 0;
+        for (let i = x; i <= y; i++) {
+          sum += i;
+        }
+        console.log(sum);
+      }
+
+      let num1 = +prompt("输入第一个数： ");
+      let num2 = +prompt("输入第二个数：");
+      getSum(num1, num2);
+    </script>
+  </body>
+</html>
