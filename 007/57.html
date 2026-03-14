@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let goods = {
+        uname: "iPhone",
+        num: "2518195181877",
+        price: "5999",
+        weight: "0.55kg",
+        address: "American",
+      };
+
+      console.log(goods.uname);
+      goods.price = "5699";
+
+      goods.uname = "iPhone 7 Plus";
+      console.log(goods.uname);
+      goods.color = "silver";
+
+      goods["color"];
+
+      console.log(goods["color"]);
+      console.log(goods["uname"]);
+      console.log(goods["num"]);
+
+      console.log(goods.weight);
+    </script>
+  </body>
+</html>
