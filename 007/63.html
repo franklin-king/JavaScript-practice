@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getRandom(N, M) {
+        return Math.floor(Math.random() * (M - N + 1)) + N;
+      }
+
+      let random = getRandom(1, 10);
+      let flag = true;
+      // 开关变量
+
+      for (let i = 0; i < 3; i++) {
+        let num = +prompt("输入数字： ");
+        if (num > random) {
+          alert("大了");
+        } else if (num < random) {
+          alert("小了");
+        } else {
+          alert("猜对了");
+          flag = false;
+          break;
+        }
+      }
+      if (flag) {
+        alert("次数用尽");
+      }
+    </script>
+  </body>
+</html>

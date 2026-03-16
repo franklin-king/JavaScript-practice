@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [
+        "张飞",
+        "关羽",
+        "赵云",
+        "刘备",
+        "曹操",
+        "黄忠",
+        "诸葛亮",
+        "司马懿",
+      ];
+      let random = Math.floor(Math.random() * arr.length);
+      console.log(arr[random]);
+      arr.splice(random, 1);
+      console.log(arr);
+    </script>
+  </body>
+</html>
