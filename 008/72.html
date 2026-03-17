@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="./images/1.webp" />
+    <script>
+      function getRandomNum(x = 0, y = 0) {
+        return Math.floor(Math.random() * (y - x + 1)) + x;
+      }
+      const img = document.querySelector("img");
+      const random = getRandomNum(1, 6);
+      img.src = `./images/${random}.webp`;
+    </script>
+  </body>
+</html>

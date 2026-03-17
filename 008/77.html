@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" value="hello" />
+    <button disabled></button>
+    <script>
+      const ipt = document.querySelector("input");
+      console.log(ipt.value);
+      console.log(ipt.type);
+      const btn = document.querySelector("button");
+      btn.disabled = false;
+    </script>
+  </body>
+</html>

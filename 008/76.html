@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="nav" data-id="1">1</div>
+    <div class="nav" data-id="2">2</div>
+    <div class="nav" data-id="3">3</div>
+
+    <script>
+      const one = document.querySelector("div");
+      console.log(one.dataset.id);
+      console.log(one.dataset);
+      const two = document.querySelector("[data-id='2']");
+      console.log(two.dataset);
+    </script>
+  </body>
+</html>
