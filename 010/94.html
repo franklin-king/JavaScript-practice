@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>第1句话</li>
+      2
+      <li>第2句话</li>
+      <li>第3句话</li>
+      <li>第4句话</li>
+      <li>第5句话</li>
+      <p>我是坏蛋</p>
+    </ul>
+    <script>
+      const ul = document.querySelector("ul");
+      ul.addEventListener("click", function (event) {
+        // console.log(event.target.tagName);
+        if (event.target.tagName === "LI") {
+          event.target.style.color = "red";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -77,9 +77,8 @@
     <script>
       const checkAll = document.querySelector("#checkAll");
       const cks = document.querySelectorAll(".ck");
-      checkAll.addEventListener("click", function () {
-        // console.log(this.checked);
 
+      checkAll.addEventListener("click", function (event) {
         for (let i = 0; i < cks.length; i++) {
           cks[i].checked = this.checked;
         }

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      height: 200px;
+      width: 200px;
+      background-color: aqua;
+      margin: 100px;
+      display: none;
+    }
+    body {
+      height: 3000px;
+    }
+  </style>
+  <body>
+    <div class="box"></div>
+    <script>
+      const box = document.querySelector("div");
+      window.addEventListener("scroll", function () {
+        console.log(document.documentElement.scrollTop);
+
+        const n = document.documentElement.scrollTop;
+        if (n >= 100) {
+          box.style.display = "block";
+        } else {
+          box.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
