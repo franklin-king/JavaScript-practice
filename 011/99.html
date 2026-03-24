@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    div {
+      height: 40px;
+      border: 1px solid #000;
+      text-align: center;
+      line-height: 40px;
+    }
+  </style>
+  <body>
+    <div></div>
+    <script>
+      const box = document.querySelector("div");
+      function newTime() {
+        const date = new Date();
+        let h = date.getHours();
+        h = h < 10 ? "0" + h : h;
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+        s = s < 10 ? "0" + s : s;
+        return `今天是${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日${h}时${m}分${s}秒`;
+      }
+      box.innerHTML = newTime();
+      setInterval(function () {
+        box.innerHTML = newTime();
+      }, 1000);
+    </script>
+  </body>
+</html>

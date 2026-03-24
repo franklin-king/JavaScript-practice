@@ -1200,20 +1200,71 @@
       </ul>
     </div>
     <script>
-      const elevator = document.querySelector(".xtx-elevator");
-      window.addEventListener("scroll", function () {
-        const n = document.documentElement.scrollTop;
-        if (n >= 300) {
-          elevator.style.opacity = 1;
-        } else {
-          elevator.style.opacity = 0;
-        }
-      });
+      (function () {
+        const elevator = document.querySelector(".xtx-elevator");
+        const entry = document.querySelector(".xtx_entry");
+        window.addEventListener("scroll", function () {
+          const n = document.documentElement.scrollTop;
+          if (n >= entry.offsetTop) {
+            elevator.style.opacity = 1;
+          } else {
+            elevator.style.opacity = 0;
+          }
+        });
+        const backTotop = document.querySelector("#backTop");
+        backTotop.addEventListener("click", function () {
+          // document.documentElement.scrollTop = 0;
+          window.scrollTo(0, 0);
+        });
+      })();
+      (function () {
+        const list = document.querySelector(".xtx-elevator-list");
+        list.addEventListener("click", function (event) {
+          if (event.target.tagName === "A" && event.target.dataset.name) {
+            // console.log(11)
+            const light = document.querySelector(".xtx-elevator-list .active");
 
-      const backTotop = document.querySelector("#backTop");
-      backTotop.addEventListener("click", function () {
-        document.documentElement.scrollTop = 0;
-      });
+            if (light) {
+              light.classList.remove("active");
+            }
+            event.target.classList.add("active");
+            // 按下就添加 不管是否已经有高亮(.active)
+            const nameSelf = event.target.dataset.name;
+            // console.log(nameSelf);
+            // console.log(`.xtx_panel_${event.target.dataset.name}`);
+
+            document.documentElement.scrollTop = document.querySelector(
+              `.xtx_goods_${event.target.dataset.name}`,
+            ).offsetTop;
+          }
+        });
+      })();
+
+      (function () {
+        window.addEventListener("scroll", function () {
+          const scrollValue = document.documentElement.scrollTop;
+          const light = document.querySelector(".xtx-elevator-list .active");
+
+          if (light) {
+            light.classList.remove("active");
+          }
+
+          const goodsNew = document.querySelector(".xtx_goods_new");
+          const goodsPopular = document.querySelector(".xtx_goods_popular");
+          const goodsBrand = document.querySelector(".xtx_goods_brand ");
+          const goodsCategory = document.querySelector(".xtx_goods_category");
+
+          const list = document.querySelector(".xtx-elevator-list");
+
+          if (
+            scrollValue >= goodsNew.offsetTop &&
+            scrollValue <= goodsPopular.offsetTop
+          ) {
+            document.querySelector('[data-name="new"]').classList.add("active");
+          }
+          // ......
+        });
+      })();
     </script>
   </body>
 </html>
