@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>原生哈希路由 SPA</title>
+    <style>
+      /* 页面样式 */
+      .nav {
+        margin: 20px 0;
+      }
+      .nav a {
+        margin: 0 10px;
+        text-decoration: none;
+      }
+      .page {
+        display: none;
+        padding: 20px;
+        border: 1px solid #eee;
+      }
+      .page.active {
+        display: block; /* 显示当前页面 */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 导航链接：只修改哈希值 -->
+    <div class="nav">
+      <a href="#/home">首页</a>
+      <a href="#/my">我的页面</a>
+      <a href="#/order">订单页面</a>
+    </div>
+
+    <!-- 所有页面内容（默认隐藏） -->
+    <div id="pages">
+      <div class="page" data-path="#/home">首页内容</div>
+      <div class="page" data-path="#/my">我的页面内容</div>
+      <div class="page" data-path="#/order">订单页面内容</div>
+    </div>
+
+    <script>
+      // 1. 获取所有页面
+      const pages = document.querySelectorAll(".page");
+
+      // 2. 根据哈希值切换页面
+      function router() {
+        // 获取当前 URL 中的哈希值，去掉 #，默认 /home
+        const currentPath = location.hash || "#/home";
+
+        // 遍历所有页面，匹配路径则显示，否则隐藏
+        pages.forEach((page) => {
+          if (page.dataset.path === currentPath) {
+            page.classList.add("active");
+          } else {
+            page.classList.remove("active");
+          }
+        });
+      }
+
+      // 3. 监听哈希值变化
+      window.addEventListener("hashchange", router);
+
+      // 4. 页面首次加载时执行一次
+      window.addEventListener("load", router);
+    </script>
+  </body>
+</html>
