@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        uname: "king",
+        sayHi: function () {
+          console.log(this);
+        },
+      };
+      obj.sayHi();
+
+      const obj2 = {
+        uname: "king",
+        sayHi: () => {
+          console.log(this);
+        },
+      };
+      obj2.sayHi();
+    </script>
+  </body>
+</html>

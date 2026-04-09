@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // function out() {
+      //   let i = 1;
+      //   return function () {
+      //     i++;
+      //     console.log(`函数被调用了${i}次`);
+      //   };
+      // }
+      // const fun = out();
+
+      function out() {
+        let i = 0;
+        function fn() {
+          i++;
+          console.log(`函数被调用了${i}次`);
+        }
+        return fn;
+      }
+      const fun = out();
+    </script>
+  </body>
+</html>

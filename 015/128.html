@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function ren(a, b, ...other) {
+        console.log(a, b);
+        console.log(other);
+        return other;
+      }
+      const newArr = ren("http://baidu.com", "JSON", "get", "have");
+      console.log(newArr[1]);
+    </script>
+  </body>
+</html>

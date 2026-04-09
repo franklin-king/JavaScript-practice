@@ -387,8 +387,16 @@ ul {
   clear: both;
 }
 
-.clearfix {
+/* .clearfix {
   *zoom: 1;
+} */
+
+/* 兼容旧版 IE（可选，如不需要支持 IE6/7 可省略） */
+.clearfix {
+  /* 触发 BFC，现代浏览器已足够支持 */
+  overflow: hidden;
+  /* 针对旧版 IE 的触发布局 */
+  zoom: 1;
 }
 
 .wrapper {
