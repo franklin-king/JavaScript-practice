@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Informa(name, age) {
+        this.name = name;
+        this.age = age;
+        this.sayHi = () => {
+          console.log("hi");
+        };
+      }
+      const obj1 = new Informa("jack", 18);
+      obj1.name = "king";
+      Informa.gender = "男";
+      console.log(Informa.gender);
+      console.log(obj1);
+    </script>
+  </body>
+</html>

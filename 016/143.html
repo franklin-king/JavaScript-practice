@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Informa(name, age) {
+        this.name = name;
+        this.age = age;
+        this.sayHi = () => {
+          console.log("hi");
+        };
+      }
+      const obj1 = new Informa("jack", 18);
+      console.log(Object.keys(obj1));
+      console.log(Object.values(obj1));
+
+      const objCopy = {};
+      Object.assign(objCopy, obj1);
+      Object.assign(objCopy, { gender: "man" });
+      console.log(objCopy);
+    </script>
+  </body>
+</html>
