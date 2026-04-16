@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Person(uname, age) {
+        this.uname = uname;
+        this.age = age;
+      }
+
+      Person.prototype.sing = () => {
+        console.log("123456789");
+      };
+      Person.prototype.gender = "男";
+
+      const self = new Person("king", 8);
+      console.log(self);
+      console.log(self.gender);
+
+      // console.log(self.prototype);  //undefined
+
+      console.log(Person);
+
+      console.log(Person.prototype);
+    </script>
+  </body>
+</html>

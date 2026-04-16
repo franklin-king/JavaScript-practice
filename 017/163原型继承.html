@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // const Person = {
+      //   eyes: 2,
+      //   head: 1,
+      // };
+
+      //父函数
+      function Person() {
+        ((this.eyes = 2), (this.head = 1));
+      }
+      //子函数
+      function Woman() {}
+      Woman.prototype = new Person();
+      Woman.prototype.construtor = Woman;
+      const girl = new Woman();
+
+      Woman.prototype.baby = () => {
+        console.log("hello");
+      };
+
+      console.log(girl);
+      //子函数
+      function Man() {}
+      Man.prototype = new Person();
+      Man.prototype.construtor = Man;
+      const boy = new Man();
+      console.log(boy);
+    </script>
+  </body>
+</html>

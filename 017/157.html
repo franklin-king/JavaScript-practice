@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arr = [1, 2, 3, 4];
+
+      Array.prototype.max = function () {
+        return Math.max(...this);
+      };
+
+      arr.max();
+      console.log(arr.max());
+
+      // Array.prototype.max = function (arr) {
+      //   return Math.max(...arr);
+      // };
+      // arr.max(arr);
+      Array.prototype.sum = function () {
+        return this.reduce((item, prev) => item + prev, 0);
+      };
+
+      arr.sum();
+
+      console.log(arr.sum());
+    </script>
+  </body>
+</html>

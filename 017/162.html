@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const Person = {
+        eyes: 2,
+        head: 1,
+      };
+      function Woman() {}
+      Woman.prototype = Person;
+      Woman.prototype.constructor = Woman;
+
+      const girl = new Woman();
+      console.log(girl);
+      console.log(Woman.prototype);
+    </script>
+  </body>
+</html>
