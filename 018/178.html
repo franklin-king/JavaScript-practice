@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const oldObj = {
+        name: "king",
+        age: 9,
+        sayHi: function () {
+          console.log("hello");
+        },
+        baby: {
+          eyes: 2,
+        },
+      };
+
+      const newObj = JSON.parse(JSON.stringify(oldObj));
+
+      console.log(newObj);
+      console.log(oldObj);
+
+      oldObj.baby.eyes = 3;
+      console.log(newObj);
+    </script>
+  </body>
+</html>

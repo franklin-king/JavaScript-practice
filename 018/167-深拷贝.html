@@ -6,6 +6,40 @@
     <title>Document</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      const theOldObj = {
+        name: "king",
+        age: 9,
+        sayHi: function () {
+          console.log("hello");
+        },
+        baby: {
+          eyes: 2,
+        },
+      };
+
+      const theNewObj = {};
+
+      function deepCopy(newObj, oldObj) {
+        for (let k in oldObj) {
+          if (oldObj[k] instanceof Array) {
+            newObj[k] = [];
+            deepCopy(newObj[k], oldObj[k]);
+          } else if (oldObj[k] instanceof Object) {
+            newObj[k] = {};
+            deepCopy(newObj[k], oldObj[k]);
+          } else {
+            newObj[k] = oldObj[k];
+          }
+        }
+      }
+
+      deepCopy(theNewObj, theOldObj);
+      console.log(theNewObj);
+
+      theOldObj.baby.eyes = 3;
+      console.log(theNewObj);
+      console.log(theOldObj);
+    </script>
   </body>
 </html>
