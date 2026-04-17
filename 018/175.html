@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      background-color: #ccc;
+      color: #fff;
+      text-align: center;
+      font-size: 100px;
+    }
+  </style>
+  <body>
+    <div class="box"></div>
+
+    <script>
+      const box = document.querySelector(".box");
+      let i = 0;
+
+      function mouseMove() {
+        box.innerHTML = i++;
+      }
+
+      function throttle(fn, t) {
+        let timer = null;
+        return function () {
+          if (!timer) {
+            timer = setTimeout(() => {
+              fn();
+              timer = null;
+            }, t);
+          }
+        };
+      }
+
+      //       每次 mousemove 触发时，timer 一开始是 null，所以 fn() 会立刻执行
+      // 执行完立刻把 timer 设为 null，下一次触发时，timer 还是 null，所以 fn() 又会立刻执行
+
+      box.addEventListener("mousemove", throttle(mouseMove, 3000));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 500px;
+        height: 500px;
+        background-color: #ccc;
+        color: #fff;
+        text-align: center;
+        font-size: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box"></div>
+     <!-- 全部用 type="module"，统一模块环境 -->
+   <!-- 1. 引入 lodash CDN，自动挂载 window._ -->
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+  <!-- 2. 普通脚本直接用 _ -->
+  <script>
+    const box = document.querySelector(".box");
+    let i = 0;
+
+    function mouseMove() {
+      box.innerHTML = i++;
+    }
+
+    box.addEventListener("mousemove", _.debounce(mouseMove, 500));
+  </script>
+</body>
+</body>
+  </body>
+</html>

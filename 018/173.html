@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      background-color: #ccc;
+      color: #fff;
+      text-align: center;
+      font-size: 100px;
+    }
+  </style>
+
+  <body>
+    <div class="box"></div>
+    <script>
+      const box = document.querySelector(".box");
+      let i = 0;
+      function mouseMove() {
+        box.innerHTML = i++;
+      }
+
+      function debounce(fn, t) {
+        let timer = null;
+        return function () {
+          if (timer) clearTimeout(timer);
+          timer = setTimeout(() => {
+            fn();
+          }, 500);
+        };
+      }
+      // 因为 JS 的 ** 闭包（Closure）** 特性，返回的这个匿名函数，会一直 “记住” 它外部 debounce 里的 timer 变量，
+      // 所以每次触发事件，都能操作同一个 timer，实现 “上一次的定时器被取消，只保留最后一次的延迟执行”。
+      // debounce(mouseMove, 500) 只会在绑定事件时执行一次，之后每次 mousemove 触发，调用的都是 undefined，完全不会执行防抖逻辑。
+      // 而且 timer 每次调用 debounce 都会重新创建，没法跨事件触发保留状态，防抖直接失效。
+
+      box.addEventListener("mousemove", debounce(mouseMove, 500));
+
+      // addEventListener 的第二个参数，必须是一个函数（事件触发时会调用这个函数）。
+      // 如果你直接写 debounce(mouseMove, 500)，它如果不 return 任何东西，那第二个参数就是 undefined，事件触发时什么都不会做。
+      // 所以 debounce 必须返回一个新的匿名函数，作为真正的事件处理函数传给 addEventListener。
+    </script>
+  </body>
+</html>

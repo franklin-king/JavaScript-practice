@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>点击</button>
+    <script>
+      const obj = {
+        name: "king",
+        age: 6,
+      };
+
+      function fn() {
+        console.log(this);
+      }
+
+      const fun = fn.bind(obj);
+      fun();
+
+      document.querySelector("button").addEventListener("click", function () {
+        this.disabled = true;
+        setTimeout(
+          function () {
+            this.disabled = false;
+          }.bind(this),
+          2000,
+        );
+      });
+
+      // document.querySelector("button").addEventListener("click", function () {
+      //   this.disabled = true;
+      //   setTimeout(() => {
+      //     this.disabled = false;
+      //   }, 2000);
+      // });
+
+      // const btn = document.querySelector("button");
+      // btn.addEventListener("click", function () {
+      //   this.disabled = true;
+      //   setTimeout(function () {
+      //     btn.disabled = false;
+      //   }, 2000);
+      // });
+    </script>
+  </body>
+</html>
